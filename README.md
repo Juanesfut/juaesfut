@@ -1,22 +1,248 @@
-from zipfile import ZipFile
-import shutil
-import os
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Formación integral para futbolistas jóvenes en JUANES FUT ACADEMY. Entrenamiento físico, psicológico, nutricional y más. ¡Inscríbete ahora!">
+  <title>JUANES FUT ACADEMY</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-# Reconfigurar rutas tras el reinicio del entorno
-folder_path = "/mnt/data/juanes_web_final"
-html_source = "/mnt/data/juanes_fut_combined.html"
-html_dest = f"{folder_path}/index.html"
+    header {
+      background: url('imagen.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-# Crear carpeta de salida
-os.makedirs(folder_path, exist_ok=True)
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+    }
 
-# Copiar el HTML y renombrarlo como index.html
-shutil.copyfile(html_source, html_dest)
+    .title .red {
+      color: red;
+    }
 
-# Crear ZIP con los archivos necesarios
-zip_path = "/mnt/data/juanes_web_final.zip"
-with ZipFile(zip_path, 'w') as zipf:
-    zipf.write(html_dest, arcname="index.html")
+    .button {
+      background-color: yellow;
+      color: black;
+      padding: 15px 30px;
+      margin: 30px 0;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+    }
 
-zip_path
+    .section {
+      margin: 40px auto;
+      max-width: 800px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    h2 {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      position: relative;
+      padding-left: 25px;
+      font-size: 18px;
+    }
+
+    ul li::before {
+      content: "✔️";
+      position: absolute;
+      left: 0;
+    }
+
+    #countdown {
+      font-size: 22px;
+      margin: 20px 0;
+      color: red;
+      font-weight: bold;
+    }
+
+    .form-section {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      margin-top: 30px;
+    }
+
+    .form-section.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-section input, .form-section textarea {
+      margin: 10px 0;
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .success-cases {
+      margin-top: 50px;
+      padding: 20px;
+    }
+
+    .profile {
+      display: inline-block;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .social {
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .social a {
+      color: yellow;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .title {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title">
+      <span class="red">JUANES</span> FUT ACADEMY
+    </div>
+    <p>Destaca en el futbol y alcanza tu contrato profesional con Juanes Fut Academy.</p>
+    <button class="button" onclick="showForm()">ACCEDER AHORA</button>
+  </header>
+
+  <div class="section">
+    <h2>QUIÉNES SOMOS</h2>
+    <p style="text-align: center;">En JUANES FUT ACADEMY creemos en una formación completa para jóvenes futbolistas. Nuestro enfoque integral incluye entrenamiento físico, psicológico, táctico, nutricional y educativo.</p>
+  </div>
+
+  <div class="section">
+    <h2>¿QUÉ ENCONTRARÁS?</h2>
+    <ul>
+      <li>Rutina entrenamiento individual (Normalmente 397€)</li>
+      <li>Rutina gimnasio y físico en campo (Normalmente 397€)</li>
+      <li>Psicología deportiva + Psicología educativa (Normalmente 597€)</li>
+      <li>Guía nutrición + Recetas (Normalmente 197€)</li>
+      <li>Secretos de productividad y hábitos (Normalmente 97€)</li>
+      <li>Video llamadas con preparadores físicos, representantes, etc.</li>
+      <li>Posibilidad de aprender un nuevo idioma</li>
+      <li>Seguimiento académico en caso de que estudies</li>
+    </ul>
+  </div>
+
+  <div id="countdown">Oferta finaliza en: <span id="timer"></span></div>
+
+  <div class="form-section" id="form-section">
+    <h2>Inscríbete Ahora</h2>
+    <p style="color: red; font-weight: bold;">¡Ahora solo por 45,99€/mes en vez de 197€!</p>
+    <form action="https://formsubmit.co/juanes.fut09@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://tu-dominio.github.io/gracias.html">
+
+      <input type="text" name="nombre" placeholder="Nombre" required>
+      <input type="text" name="apellidos" placeholder="Apellidos" required>
+      <input type="number" name="edad" placeholder="Edad" required>
+      <input type="text" name="posicion" placeholder="Posición" required>
+      <input type="email" name="email" placeholder="Correo Electrónico" required>
+      <input type="tel" name="telefono" placeholder="Número de Teléfono" required>
+      <button class="button" type="submit">Enviar Inscripción</button>
+    </form>
+  </div>
+
+  <div class="success-cases">
+    <h2>CASOS DE ÉXITO</h2>
+    <p style="text-align:center;">¡Más de 500 casos de éxito!</p>
+    <div class="profile">
+      <img src="jugador-autonomica.jpg" alt="Jugador Autonómica">
+      <p>Hace 4 años jugaba en segunda juvenil.<br>Hoy en Autonómica Juvenil.</p>
+    </div>
+    <div class="profile">
+      <img src="jugador-tercera.jpg" alt="Jugador Tercera División">
+      <p>Debutó en Tercera División con 16 años.</p>
+    </div>
+  </div>
+
+  <div class="social">
+    <h2>REDES SOCIALES</h2>
+    <p><a href="https://www.instagram.com/juanes.fut" target="_blank">Instagram: juanes.fut</a></p>
+    <p><a href="mailto:juanes.fut09@gmail.com">Correo: juanes.fut09@gmail.com</a></p>
+    <p><a href="https://www.facebook.com/juanes.fut" target="_blank">Facebook: juanes.fut</a></p>
+    <p><a href="https://www.tiktok.com/@juanes.fut" target="_blank">TikTok: juanes.fut</a></p>
+  </div>
+
+  <script>
+    function showForm() {
+      const form = document.getElementById('form-section');
+      form.classList.add('show');
+      window.scrollTo({ top: form.offsetTop, behavior: 'smooth' });
+    }
+
+    var countDownDate = new Date("June 1, 2025 23:59:59").getTime();
+    var x = setInterval(function () {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "¡Oferta finalizada!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
 
