@@ -1,133 +1,168 @@
-header {
-  background: url('imagen.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Ejemplo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: url('imagen.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .title .red {
+            color: red;
+        }
+        .button {
+            background-color: yellow;
+            color: black;
+            padding: 15px 30px;
+            margin: 30px 0;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .section {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 20px;
+            text-align: left;
+        }
+        h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            margin: 10px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: 18px;
+        }
+        ul li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+        }
+        #countdown {
+            font-size: 22px;
+            margin: 20px 0;
+            color: red;
+            font-weight: bold;
+        }
+        .form-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            margin-top: 30px;
+        }
+        .form-section.show {
+            display: block;
+            opacity: 1;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-section input, .form-section textarea {
+            margin: 10px 0;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: none;
+        }
+        .success-cases {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .profile {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .social {
+            margin-top: 40px;
+            padding: 20px;
+        }
+        .social a {
+            color: yellow;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .title {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
 
-.title {
-  font-size: 3em;
-  font-weight: bold;
-}
+<header>
+    <h1 class="title"><span class="red">Título</span> Principal</h1>
+    <button class="button">Haz clic aquí</button>
+</header>
 
-.title .red {
-  color: red;
-}
+<section class="section">
+    <h2>Sección de Información</h2>
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+    <p id="countdown">Tiempo restante: 10 días</p>
+</section>
 
-.button {
-  background-color: yellow;
-  color: black;
-  padding: 15px 30px;
-  margin: 30px 0;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 10px;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-}
+<section class="form-section">
+    <h2>Formulario de Contacto</h2>
+    <form>
+        <input type="text" placeholder="Nombre">
+        <textarea placeholder="Mensaje"></textarea>
+        <button type="submit" class="button">Enviar</button>
+    </form>
+</section>
 
-.section {
-  margin: 40px auto;
-  max-width: 800px;
-  padding: 20px;
-  text-align: left;
-}
+<section class="success-cases">
+    <h2>Casos de Éxito</h2>
+    <div class="profile">
+        <img src="persona.jpg" alt="Perfil">
+        <p>Persona Exitosa</p>
+    </div>
+</section>
 
-h2 {
-  font-size: 28px;
-  text-align: center;
-  margin-bottom: 20px;
-}
+<section class="social">
+    <h2>Síguenos en redes</h2>
+    <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+</section>
 
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  margin: 10px 0;
-  position: relative;
-  padding-left: 25px;
-  font-size: 18px;
-}
-
-ul li::before {
-  content: "✔️";
-  position: absolute;
-  left: 0;
-}
-
-#countdown {
-  font-size: 22px;
-  margin: 20px 0;
-  color: red;
-  font-weight: bold;
-}
-
-.form-section {
-  display: none;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-  margin-top: 30px;
-}
-
-.form-section.show {
-  display: block;
-  opacity: 1;
-}
-
-.form-section form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-section input, .form-section textarea {
-  margin: 10px 0;
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: none;
-}
-
-.success-cases {
-  margin-top: 50px;
-  padding: 20px;
-}
-
-.profile {
-  display: inline-block;
-  margin: 10px;
-  text-align: center;
-}
-
-.profile img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.social {
-  margin-top: 40px;
-  padding: 20px;
-}
-
-.social a {
-  color: yellow;
-  text-decoration: none;
-}
-
-@media (max-width: 600px) {
-  .title {
-    font-size: 32px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-}
-
+</body>
+</html>
