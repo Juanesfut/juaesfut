@@ -31,10 +31,6 @@ Mantente informado y sigue nuestro contenido en nuestras plataformas:
 - **TikTok:** [@juanes.fut](https://www.tiktok.com/@juanes.fut?_t=ZN-8vwc4dWbGBq&_r=1)
 - **Correo Electrónico:** [juanes.fut09@gmail.com](mailto:juanes.fut09@gmail.com)
 
-## Contador de Oferta
-La oferta especial finaliza en **Junio 1, 2025 a las 23:59:59**.  
-El sitio web incluye un contador de tiempo real para visualizar la duración restante de la promoción.
-
 ## Tecnologías Utilizadas
 Este proyecto web está construido con:
 - **HTML5** para la estructura del contenido.
